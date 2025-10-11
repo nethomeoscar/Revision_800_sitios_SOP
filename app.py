@@ -5,6 +5,28 @@ from streamlit_folium import st_folium
 from io import BytesIO
 from xlsxwriter import Workbook
 
+# Encabezado personalizado
+st.set_page_config(page_title="Evaluación de Sitios Públicos - León GTO", layout="wide")
+
+# Logo (opcional)
+st.image("NetHome.jpg", width=150)  # Asegúrate de tener el archivo en el mismo directorio
+
+# Título y descripción
+st.title("📡 Evaluación de Sitios Públicos con Conectividad")
+st.markdown("""
+Este mapa interactivo presenta los resultados de la revisión técnica de más de 800 sitios públicos en León, Silao, Guanajuato, Irapuato, Salamanca y Celaya evaluando su conectividad a internet mediante pruebas de velocidad, estabilidad y accesibilidad.
+
+**Objetivo del estudio**: Identificar zonas con buena conectividad y aquellas que requieren mejora, para apoyar decisiones de infraestructura y servicio.
+
+**¿Cómo usar esta herramienta?**
+- Usa los filtros en el panel lateral para seleccionar municipios y tipos de espacio.
+- Elige la capa que deseas visualizar: calificación, velocidad de bajada o subida.
+- Haz clic en los marcadores para ver detalles del sitio.
+- Exporta los datos filtrados en Excel para análisis adicional.
+
+---
+""")
+
 # Cargar datos
 df = pd.read_csv('Revisión 800 sitios.csv', encoding='latin1')
 
@@ -65,7 +87,7 @@ for _, row in df_filtrado.iterrows():
 # Mostrar mapa
 st.title("🗺️ Mapa interactivo de evaluación de sitios")
 st.markdown("Filtra por municipio, tipo de espacio y elige la capa que deseas visualizar.")
-st_folium(m, width=900, height=600)
+st_folium(m, width=900, height=500)
 
 # Mostrar resumen estadístico
 st.subheader("📊 Resumen por municipio")
