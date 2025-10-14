@@ -72,10 +72,10 @@ for _, row in df_filtrado.iterrows():
         radius = 6
     elif capa_sel == 'Velocidad de Bajada':
         color = 'blue'
-        radius = row['Bajada'] / 4
+        radius = row['Bajada'] / 5
     elif capa_sel == 'Velocidad de Subida':
         color = 'purple'
-        radius = row['Subida'] / 4
+        radius = row['Subida'] / 5
 
     folium.CircleMarker(
         location=[row['Latitud'], row['Longitud']],
@@ -151,3 +151,4 @@ df = pd.DataFrame(data)
 
 # Mostrar tabla
 st.dataframe(df, use_container_width=True)
+
