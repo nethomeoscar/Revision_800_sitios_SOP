@@ -134,7 +134,7 @@ data = {
         "Buen ancho de banda"
     ],
     "Lo que esperamos": [
-        "Que los dispositivos se puedan conectar de manera instantánea o sin el menor esfuerzo", 
+        "Que los dispositivos se puedan conectar de manera instantánea o con el menor esfuerzo", 
         "Poder envíar mensaje", 
         "Poder ver de manera correcta las publicaciones y/o reels", 
         "Visualizar los videos", 
@@ -151,3 +151,4 @@ df = pd.DataFrame(data)
 
 # Mostrar tabla
 st.dataframe(df, use_container_width=True)
+
