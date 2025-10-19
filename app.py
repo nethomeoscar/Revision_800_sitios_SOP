@@ -9,7 +9,7 @@ from xlsxwriter import Workbook
 st.set_page_config(page_title="Evaluación de Sitios Públicos - León GTO", layout="wide")
 
 # Logo (opcional)
-st.image("NetHome.jpg", width=150)  # Asegúrate de tener el archivo en el mismo directorio
+st.image("NetHome.jpg", width=250)  # Asegúrate de tener el archivo en el mismo directorio
 
 # Título y descripción
 st.title("📡 Evaluación de Sitios Públicos con Conectividad")
@@ -153,3 +153,4 @@ df = pd.DataFrame(data)
 
 # Mostrar tabla
 st.dataframe(df, use_container_width=True)
+
