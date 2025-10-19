@@ -28,7 +28,7 @@ Este mapa interactivo presenta los resultados de la revisión técnica de más d
 """)
 
 # Cargar datos
-df = pd.read_csv('Revisión 800 sitios.csv', encoding='latin1')
+df = pd.read_excel('Revisión 800 sitios.xlsx', sheet_name='BD1')
 
 # Filtrar datos válidos
 df = df.dropna(subset=['Latitud', 'Longitud', 'Bajada', 'Subida', 'Calificación'])
@@ -72,10 +72,10 @@ for _, row in df_filtrado.iterrows():
         radius = 6
     elif capa_sel == 'Velocidad de Bajada':
         color = 'blue'
-        radius = row['Bajada'] / 5
+        radius = row['Bajada'] / 4
     elif capa_sel == 'Velocidad de Subida':
         color = 'purple'
-        radius = row['Subida'] / 5
+        radius = row['Subida'] / 4
 
     folium.CircleMarker(
         location=[row['Latitud'], row['Longitud']],
@@ -151,4 +151,3 @@ df = pd.DataFrame(data)
 
 # Mostrar tabla
 st.dataframe(df, use_container_width=True)
-
