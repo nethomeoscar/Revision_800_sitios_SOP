@@ -90,11 +90,11 @@ for _, row in df_filtrado.iterrows():
 # Mostrar mapa
 st.title("🗺️ Mapa interactivo de evaluación de sitios")
 st.markdown("Filtra por municipio, tipo de espacio y elige la capa que deseas visualizar.")
-st_folium(m, width=900, height=500)
+st_folium(m, use_container_width=True, height=500)
 
 # Mostrar resumen estadístico
 st.subheader("📊 Resumen por municipio")
-conteo = df_filtrado.groupby('Municipio').size().rename('Total de sitios')
+conteo = df_filtrado.groupby('Municipio').size().rename('Total de sitios visitados')
 resumen = df_filtrado.groupby('Municipio')[['Bajada', 'Subida', 'Calificación']].mean().round(2)
 resumen = resumen.join(conteo)
 st.dataframe(resumen)
