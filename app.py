@@ -94,7 +94,9 @@ st_folium(m, width=900, height=500)
 
 # Mostrar resumen estadístico
 st.subheader("📊 Resumen por municipio")
+conteo = df_filtrado.groupby('Municipio').size().rename('Total de sitios')
 resumen = df_filtrado.groupby('Municipio')[['Bajada', 'Subida', 'Calificación']].mean().round(2)
+resumen = resumen.join(conteo)
 st.dataframe(resumen)
 
 # Exportar datos filtrados
