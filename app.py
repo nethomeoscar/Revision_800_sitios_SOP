@@ -77,6 +77,8 @@ for _, row in df_filtrado.iterrows():
         color = 'purple'
         radius = row['Subida'] / 4
 
+    tooltip_text = f"{row['Sitio']}"
+
     folium.CircleMarker(
         location=[row['Latitud'], row['Longitud']],
         radius=radius,
@@ -84,7 +86,8 @@ for _, row in df_filtrado.iterrows():
         fill=True,
         fill_color=color,
         fill_opacity=0.6,
-        popup=generar_popup(row)
+        popup=generar_popup(row),
+        tooltip = tooltip_text
     ).add_to(m)
 
 # Mostrar mapa
@@ -153,5 +156,6 @@ df = pd.DataFrame(data)
 
 # Mostrar tabla
 st.dataframe(df, use_container_width=True)
+
 
 
